@@ -15,6 +15,7 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
@@ -31,7 +32,6 @@ export const routes: Routes = [
   {
     path: 'reset-pass',
     component: PasswordResetComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: '404',

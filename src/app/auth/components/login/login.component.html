@@ -5,7 +5,7 @@
     matInput
     autofocus 
     required 
-    placeholder="Email" 
+    placeholder="Użytkownik" 
     [(ngModel)]="credentials.email" 
     name="email">
   </mat-form-field>
@@ -15,15 +15,15 @@
     matInput
     required 
     [type]="hide ? 'text' : 'password'"
-    placeholder="Password" 
+    placeholder="Hasło" 
     [(ngModel)]="credentials.password" 
     name="password">
     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
   </mat-form-field>
 
     <button mat-raised-button color="primary" class="big" type="submit" [disabled]="disabled">
-    Login
+    Zaloguj
     <mat-progress-bar *ngIf="disabled" mode="indeterminate"></mat-progress-bar>
   </button>
-  <button [routerLink]="['/reset-pass']"  mat-raised-button color="primary" class="small" routerLinkActive="active" >Reset Password</button>
+  <button [routerLink]="['/reset-pass']"  mat-raised-button color="primary" class="small" routerLinkActive="active" >Resetuj Hasło</button>
 </form>
