@@ -4,7 +4,7 @@ import { MaterialModule } from '../material';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HomeComponent } from './containers';
+import { HomeComponent, ListComponent } from './containers';
 import { ThemesModule } from '../themes';
 
 @NgModule({
@@ -18,6 +18,7 @@ import { ThemesModule } from '../themes';
   ],
   declarations: [
     HomeComponent,
+    ListComponent,
   ]
 })
 export class HomeModule { }

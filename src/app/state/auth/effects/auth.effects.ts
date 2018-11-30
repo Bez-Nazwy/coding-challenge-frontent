@@ -31,7 +31,7 @@ export class AuthEffects {
     tap((action: any) => {
       localStorage.setItem('token', action.payload.token);
       this.router.navigate(['home']);
-      this.infoService.showInfo('You were successfully logged in.');
+      this.infoService.showInfo('Pomyślnie zalogowano do serwisu.');
     })
   );
 

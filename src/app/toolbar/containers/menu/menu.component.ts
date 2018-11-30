@@ -26,7 +26,7 @@ export class MenuComponent {
 
   public logout() {
     this.store.dispatch(new AuthActions.Logout());
-    this.infoService.showInfo('You were successfully logged out.');
+    this.infoService.showInfo('Zostałeś pomyślnie wylogowany.');
   }
 
   navigateToLogin() {

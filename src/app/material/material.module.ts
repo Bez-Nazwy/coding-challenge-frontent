@@ -15,8 +15,9 @@ import {
   MatMenuModule,
   MatExpansionModule,
   MatStepperModule,
-  MatTooltipModule
+  MatTooltipModule,
 } from '@angular/material';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import {
     MatStepperModule,
     MatMenuModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    DragDropModule
   ],
   exports: [
     MatExpansionModule,
@@ -53,7 +55,8 @@ import {
     MatMenuModule,
     MatStepperModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    DragDropModule
   ],
 })
 export class MaterialModule { }
