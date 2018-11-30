@@ -1,0 +1,25 @@
+<div class="container" appAddTheme>
+  <mat-card class="card">
+    <div align="center">
+      <h1>Przesuń pacjenta na odpowiednie miejsce w kolejce:</h1>
+      <br>
+      <h2>Lekarz: {{ Doctor[doctor] }}</h2>
+      <br>
+      <div cdkDropList class="list" (cdkDropListDropped)="drop($event)">
+        <div class="box" *ngFor="let patient of list" cdkDrag [ngClass]="{'myPatient': patient.peselNumber==myPatient.peselNumber}">
+          <p align="center">
+            <b>
+              {{ patient.name }} {{ patient.surname }} 
+            </b>
+            <br>
+            {{ patient.diagnose }}
+          </p>
+          </div>
+      </div>
+      <br>
+      <button mat-raised-button color="primary" class="button" (click)="postData()" [disabled]="disabled">
+        Potwierdź
+      </button>
+    </div>
+  </mat-card>
+</div>

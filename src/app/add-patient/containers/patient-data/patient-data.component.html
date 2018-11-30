@@ -1,7 +1,12 @@
 <div class="container" appAddTheme>
   <mat-card class="card">
     <div align="center">
-      <img src='../../../../assets/icons/icon_white.svg' />
+      <div *ngIf="theme=='light-theme'">
+        <img src='../../../../assets/icons/icon_black.svg' />
+      </div>
+      <div *ngIf="theme=='dark-theme'">
+        <img src='../../../../assets/icons/icon_white.svg' />
+      </div>
       <br>
       <h1>Dodaj nowego pacjenta:</h1>
       <br>
@@ -10,36 +15,42 @@
 
       <mat-form-field class="full-width">
         <input matInput autofocus required placeholder="Imię" [(ngModel)]="patient.name" name="name">
+        <mat-icon matSuffix>supervisor_account</mat-icon>
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <input matInput required placeholder="Nazwisko" [(ngModel)]="patient.surname" name="surname">
+        <mat-icon matSuffix>portrait</mat-icon>
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <textarea matInput required placeholder="Diagnoza" [(ngModel)]="patient.diagnose" name="diagnose">
         </textarea>
+        <mat-icon matSuffix>assignment_turned_in</mat-icon>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput required placeholder="Szacowany czas obsługi" [(ngModel)]="patient.serviceTime" name="serviceTime">
+        <input matInput required placeholder="Szacowany czas obsługi w minutach" [(ngModel)]="patient.serviceTime" name="serviceTime">
+        <mat-icon matSuffix>access_time</mat-icon>
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <input matInput required placeholder="Peesel" [(ngModel)]="patient.peselNumber" name="peselNumber">
+        <mat-icon matSuffix>fingerprint</mat-icon>
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <input type="text" placeholder="Lekarz" matInput [matAutocomplete]="auto" [(ngModel)]="patient.doctor" name="doctor">
         <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let doc of doctors" [value]="doc">
-            {{doc}}
+          <mat-option *ngFor="let doc of doctors()" [value]="doc">
+            {{Doctor[doc]}}
           </mat-option>
         </mat-autocomplete>
+        <mat-icon matSuffix>accessible</mat-icon>
       </mat-form-field>
 
       <div align="center">
-        <button mat-raised-button color="primary" type="submit" [disabled]="disabled">
+        <button mat-raised-button color="primary" class="button" type="submit" [disabled]="disabled">
           Dalej
         </button>
       </div>

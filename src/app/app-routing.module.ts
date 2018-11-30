@@ -1,11 +1,11 @@
 
 import { AuthGuard } from './auth';
 import { NgModule } from '@angular/core';
-import { HomeModule, HomeComponent } from './home';
+import { HomeModule, HomeComponent, ListComponent } from './home';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterPageComponent, LoginPageComponent } from './auth/containers';
 import { InfoComponent, BadRequestComponent, PasswordResetComponent } from './shared/containers';
-import { PatientDataComponent } from './add-patient/containers';
+import { PatientDataComponent, PatientListComponent } from './add-patient/containers';
 
 export const routes: Routes = [
   {
@@ -28,12 +28,17 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
   {
     path: 'add-patient',
     component: PatientDataComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
+  },
+  {
+    path: 'add-patient-list',
+    component: PatientListComponent,
+    // canActivate: [AuthGuard],
   },
   {
     path: 'info',
