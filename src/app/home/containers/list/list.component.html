@@ -1,0 +1,9 @@
+<mat-card>
+  <div align="center">
+    <h2>{{ doctor }}</h2>
+    <br>
+    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
+    </div>
+  </div>
+</mat-card>
