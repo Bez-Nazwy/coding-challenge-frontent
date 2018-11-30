@@ -5,17 +5,13 @@ import { HomeModule, HomeComponent } from './home';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterPageComponent, LoginPageComponent } from './auth/containers';
 import { InfoComponent, BadRequestComponent, PasswordResetComponent } from './shared/containers';
+import { PatientDataComponent } from './add-patient/containers';
 
 export const routes: Routes = [
   {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-    // canActivate: [AuthGuard],
   },
   {
     path: 'login',
@@ -26,12 +22,22 @@ export const routes: Routes = [
     component: RegisterPageComponent,
   },
   {
-    path: 'info',
-    component: InfoComponent,
-  },
-  {
     path: 'reset-pass',
     component: PasswordResetComponent,
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'add-patient',
+    component: PatientDataComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'info',
+    component: InfoComponent,
   },
   {
     path: '404',

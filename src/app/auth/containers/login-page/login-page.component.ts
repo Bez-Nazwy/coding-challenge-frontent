@@ -32,7 +32,7 @@ export class LoginPageComponent {
     this.store.dispatch(new AuthActions.Login(credentials));
 
     this.errorMessage$.subscribe(
-      response => this.snackBar.showMessage(response.error.status || 'No server connection.')
+      response => this.snackBar.showMessage(response.error.message || 'No server connection.')
     );
   }
 }

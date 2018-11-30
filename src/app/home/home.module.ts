@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HomeComponent, ListComponent } from './containers';
 import { ThemesModule } from '../themes';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { ThemesModule } from '../themes';
     BrowserModule,
     FormsModule,
     MaterialModule,
-    ThemesModule
+    ThemesModule,
+    FlexLayoutModule
   ],
   declarations: [
     HomeComponent,

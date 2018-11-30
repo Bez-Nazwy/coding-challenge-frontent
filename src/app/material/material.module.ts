@@ -16,6 +16,7 @@ import {
   MatExpansionModule,
   MatStepperModule,
   MatTooltipModule,
+  MatAutocompleteModule,
 } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
@@ -37,7 +38,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatMenuModule,
     MatToolbarModule,
     MatTooltipModule,
-    DragDropModule
+    DragDropModule,
+    MatAutocompleteModule,
   ],
   exports: [
     MatExpansionModule,
@@ -56,7 +58,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatStepperModule,
     MatToolbarModule,
     MatTooltipModule,
-    DragDropModule
+    DragDropModule,
+    MatAutocompleteModule
   ],
 })
 export class MaterialModule { }

@@ -9,6 +9,7 @@ import { ToolbarModule } from './toolbar/toolbar.module';
 import { ThemesModule } from './themes';
 import { FormsModule } from '@angular/forms';
 import { BadRequestComponent, InfoComponent, PasswordResetComponent } from './shared/containers';
+import { AddPatientModule } from './add-patient/add-patient.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BadRequestComponent, InfoComponent, PasswordResetComponent } from './sh
     ToolbarModule,
     ThemesModule,
     FormsModule,
+    AddPatientModule
   ],
   bootstrap: [AppComponent],
   exports: [

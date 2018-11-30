@@ -6,7 +6,14 @@
             Witaj w centrum zarządzania kryzysowego NFZ!
         </h1>
     </div>
-    <div class="list">
-        <app-list></app-list>
+    <div class="list" fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+        <app-list fxFlex="0 1 calc(33.3% - 32px)" [doctor]="doctor" [movies]="movies"></app-list>
+        <app-list fxFlex="0 1 calc(33.3% - 32px)" [doctor]="doctor" [movies]="movies"></app-list>
+        <app-list fxFlex="0 1 calc(33.3% - 32px)" [doctor]="doctor" [movies]="movies"></app-list>
     </div>
 </div>
+
+<button *ngIf="email$ | async" mat-raised-button routerLink="/add-patient">
+    <mat-icon>add</mat-icon>
+    <span style="margin-left: 1em"><b>Dodaj Pacjenta</b></span>
+</button>

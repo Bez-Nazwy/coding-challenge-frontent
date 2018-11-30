@@ -1,0 +1,49 @@
+<div class="container" appAddTheme>
+  <mat-card class="card">
+    <div align="center">
+      <img src='../../../../assets/icons/icon_white.svg' />
+      <br>
+      <h1>Dodaj nowego pacjenta:</h1>
+      <br>
+    </div>
+    <form id="add-patient-form" (ngSubmit)="sendData()" ngNativeValidate>
+
+      <mat-form-field class="full-width">
+        <input matInput autofocus required placeholder="Imię" [(ngModel)]="patient.name" name="name">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput required placeholder="Nazwisko" [(ngModel)]="patient.surname" name="surname">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <textarea matInput required placeholder="Diagnoza" [(ngModel)]="patient.diagnose" name="diagnose">
+        </textarea>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput required placeholder="Szacowany czas obsługi" [(ngModel)]="patient.serviceTime" name="serviceTime">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput required placeholder="Peesel" [(ngModel)]="patient.peselNumber" name="peselNumber">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input type="text" placeholder="Lekarz" matInput [matAutocomplete]="auto" [(ngModel)]="patient.doctor" name="doctor">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let doc of doctors" [value]="doc">
+            {{doc}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <div align="center">
+        <button mat-raised-button color="primary" type="submit" [disabled]="disabled">
+          Dalej
+        </button>
+      </div>
+    </form>
+
+  </mat-card>
+</div>
