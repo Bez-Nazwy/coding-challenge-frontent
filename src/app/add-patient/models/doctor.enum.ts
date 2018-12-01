@@ -1,5 +1,5 @@
 export enum Doctor {
     OCULIST = 'Okulista',
-    INTERLIST = 'Interlista',
+    INTERNIST = 'Internista',
     DERMATOLOGIST = 'Dermatolog'
 }

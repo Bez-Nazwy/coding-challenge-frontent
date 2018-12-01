@@ -3,6 +3,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { PatientService } from '../../services';
 import { IPatient } from '../../models/IPatient';
 import { Doctor } from '../../models/doctor.enum';
+import { SnackbarService } from 'src/app/shared/services';
 
 @Component({
   selector: 'app-list',
@@ -16,7 +17,7 @@ export class PatientListComponent implements OnInit {
   myPatient: IPatient;
   Doctor = Doctor;
 
-  constructor(private service: PatientService) { }
+  constructor(private service: PatientService, private snackbar: SnackbarService) { }
 
   ngOnInit() {
     this.list = this.service.list;
@@ -29,10 +30,15 @@ export class PatientListComponent implements OnInit {
   }
 
   postData() {
-    // console.log(this.service.list);
     const position = this.list.indexOf(this.myPatient);
-    console.log(position);
     this.myPatient.priority = position;
-    console.log(this.myPatient);
+    this.service.postPatient(this.myPatient).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        this.snackbar.showMessage(err.error.message);
+      }
+    )
   }
 }
