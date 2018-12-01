@@ -1,7 +1,16 @@
 <div align="center">
   <h2>{{ doctor }}</h2>
   <br>
-  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let patient of patients" cdkDrag>{{patient}}</div>
+  <div class="list">
+    <div class="box" *ngFor="let patient of patients">
+      <p align="center">
+        <b>
+          {{ patient.name }} {{ patient.surname }}
+        </b>
+        <br>
+        {{ patient.diagnose }}
+      </p>
+      <!-- <mat-icon>account_box</mat-icon> -->
+    </div>
   </div>
 </div>
