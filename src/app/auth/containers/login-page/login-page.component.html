@@ -1,10 +1,16 @@
 <div class="container" appAddTheme>
-
+  <mat-card class="info" align="center">
+    <div *ngIf="theme=='light-theme'">
+      <img src='../../../../assets/icons/icon_black.svg' />
+    </div>
+    <div *ngIf="theme=='dark-theme'">
+      <img src='../../../../assets/icons/icon_white.svg' />
+    </div>
+    <br>
+    <h2>System zarządzania kolejką SOR</h2>
+  </mat-card>
   <mat-card class="form">
-    <app-login 
-      (login)="login($event)" 
-      [disabled]="isPending$ | async">
+    <app-login (login)="login($event)" [disabled]="isPending$ | async">
     </app-login>
   </mat-card>
-
 </div>
