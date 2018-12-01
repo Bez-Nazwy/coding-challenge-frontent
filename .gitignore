@@ -32,8 +32,6 @@ testem.log
 ### Code ###
 .settings/
 .vscode/
-tsconfig.json
-jsconfig.json
 
 ### Node ###
 # Logs
