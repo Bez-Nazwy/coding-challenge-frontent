@@ -66,14 +66,13 @@ export class ListDiaglogComponent {
   }
 
   onYesClick() {
+    this.dialogRef.close();
     this.service.deletePatient(this.data.id).subscribe(
       res => {
         this.snackbar.showMessage('Użytkownik został wypisany.');
-        this.dialogRef.close();
       },
       err => {
         this.snackbar.showMessage(err.error.message || 'Błąd serwera.');
-        this.dialogRef.close();
       }
     );
   }

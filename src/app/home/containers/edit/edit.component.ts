@@ -77,26 +77,22 @@ export class HomeDiaglogComponent {
   }
 
   onYesClick() {
+    this.dialogRef.close();
     this.service.deletePatient(this.data.patient.patientNumber).subscribe(
       resdel => {
         this.service.editPatient(this.data.patient).subscribe(
           respost => {
             this.snackbar.showMessage('Operacja zmienienia kolejki wykonana.');
-            this.dialogRef.close();
-            this.router.navigate(['home']);
           },
           err => {
             this.snackbar.showMessage(err.error.message || 'Błąd serwera.');
-            this.dialogRef.close();
-            this.router.navigate(['home']);
           }
         );
       },
       err => {
         this.snackbar.showMessage(err.error.message || 'Błąd serwera.');
-        this.dialogRef.close();
-        this.router.navigate(['home']);
       }
     );
+    this.router.navigate(['home']);
   }
 }
