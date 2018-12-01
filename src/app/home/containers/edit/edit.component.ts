@@ -78,19 +78,11 @@ export class HomeDiaglogComponent {
 
   onYesClick() {
     this.dialogRef.close();
-    this.service.deletePatient(this.data.patient.patientNumber).subscribe(
-      resdel => { },
-      err => {
-        this.snackbar.showMessage(err.error.message || 'Błąd serwera.');
-      });
-    this.service.editPatient(this.data.patient).subscribe(
-      respost => {
-        this.snackbar.showMessage('Operacja zmienienia kolejki wykonana.');
-      },
-      err => {
-        this.snackbar.showMessage(err.error.message || 'Błąd serwera.');
-      }
-    );
+    this.service.altDeletePatient(this.data.patient.patientNumber).subscribe(
+      res => { }, err => { this.snackbar.showMessage(err.error.message || 'Błąd serwera.'); });
+    this.service.altAddPatient(this.data.patient).subscribe(
+      res => { this.snackbar.showMessage('Operacja zmienienia kolejki wykonana.'); },
+      err => { this.snackbar.showMessage(err.error.message || 'Błąd serwera.'); });
     this.router.navigate(['home']);
   }
 }

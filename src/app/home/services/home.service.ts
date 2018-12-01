@@ -46,8 +46,15 @@ export class HomeService {
     return this.http.delete(url, options);
   }
 
-  editPatient(patient: IPatient): Observable<any> {
-    const url = `${this.BASE_URL}/api/patients`;
+  altDeletePatient(id): Observable<any> {
+    const url = `${this.BASE_URL}/api/patients/edit/${id}`;
+    const token = this.auth.getToken();
+    const options = { headers: new HttpHeaders().set('Authorization', 'Bearer ' + token) };
+    return this.http.delete(url, options);
+  }
+
+  altAddPatient(patient: IPatient): Observable<any> {
+    const url = `${this.BASE_URL}/api/patients/edit`;
     const body = patient;
     const token = this.auth.getToken();
     const options = { headers: new HttpHeaders().set('Authorization', 'Bearer ' + token) };
