@@ -46,7 +46,7 @@ export class PatientListComponent implements OnInit {
         this.service.redirectToInfo();
       },
       err => {
-        this.snackbar.showMessage(err.error.message);
+        this.snackbar.showMessage(err.error.message || 'Server error');
       }
     );
   }
