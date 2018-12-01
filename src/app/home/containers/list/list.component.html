@@ -1,11 +1,12 @@
 <div align="center">
-  <h2>{{ doctor }}</h2>
-  <br>
+  <h2>{{ Doctor[doctor] }}</h2>
+  <small><a (click)=editList()>[ EDYTUJ ]</a></small>
+  <br><br>
   <div class="list" 
     [ngClass]="{'dark': theme == 'dark-theme'}">
     <div class="box" *ngFor="let patient of patients"
     [ngClass]="{'dark': theme == 'dark-theme'}" 
-    (click)="openDialog(patient.id, patient.name, patient.surname)">
+    (click)="openDialog(patient.patientNumber, patient.name, patient.surname)">
       <p align="center">
         <b>
           {{ patient.name }} {{ patient.surname }}

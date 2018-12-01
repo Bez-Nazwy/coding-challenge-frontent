@@ -4,10 +4,11 @@ import { MaterialModule } from '../material';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HomeComponent, ListComponent } from './containers';
+import { HomeComponent, ListComponent, EditComponent } from './containers';
 import { ThemesModule } from '../themes';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { DiaglogComponent } from './containers/list/list.component';
+import { ListDiaglogComponent } from './containers/list/list.component';
+import { HomeDiaglogComponent } from './containers/edit/edit.component';
 
 @NgModule({
   imports: [
@@ -17,13 +18,16 @@ import { DiaglogComponent } from './containers/list/list.component';
     FormsModule,
     MaterialModule,
     ThemesModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RouterModule
   ],
   declarations: [
     HomeComponent,
     ListComponent,
-    DiaglogComponent
+    ListDiaglogComponent,
+    HomeDiaglogComponent,
+    EditComponent
   ],
-  entryComponents: [ DiaglogComponent ]
+  entryComponents: [ ListDiaglogComponent, HomeDiaglogComponent]
 })
 export class HomeModule { }

@@ -7,4 +7,5 @@ export interface IPatient {
     doctor: string;
     serviceTime: number;
     priority?: number;
+    patientNumber?: number;
 }

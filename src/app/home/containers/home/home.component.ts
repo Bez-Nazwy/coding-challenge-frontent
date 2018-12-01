@@ -33,10 +33,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.themes.pipe(select(fromThemes.getTheme)).subscribe(res => this.theme = res);
 
-    interval(5000)
+    interval(1000)
       .pipe(
         startWith(0),
-        switchMap(() => this.service.getList())
+        switchMap(() => this.service.getAllList())
       )
       .subscribe(
         response => {

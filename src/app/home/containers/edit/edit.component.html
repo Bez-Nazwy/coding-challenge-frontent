@@ -1,0 +1,22 @@
+<div class="container" appAddTheme>
+  <mat-card class="card">
+    <div align="center">
+      <h1>Ustal nowe położenie pacjenta:</h1>
+      <br>
+      <h2>Lekarz: {{ Doctor[doctor] }}</h2>
+      <br>
+      <div cdkDropList class="list" (cdkDropListDropped)="drop($event)" [ngClass]="{'dark': theme == 'dark-theme'}">
+        <div class="box" *ngFor="let patient of list" cdkDrag
+          [ngClass]="{'dark': theme == 'dark-theme'}">
+          <p align="center">
+            <b>
+              {{ patient.name }} {{ patient.surname }}
+            </b>
+            <br>
+            {{ patient.diagnose }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

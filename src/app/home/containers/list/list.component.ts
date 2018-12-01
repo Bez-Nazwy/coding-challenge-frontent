@@ -4,6 +4,7 @@ import * as fromThemes from '../../../state/themes/reducers';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { HomeService } from '../../services';
 import { SnackbarService } from 'src/app/shared/services';
+import { Doctor } from 'src/app/add-patient/models/doctor.enum';
 
 export interface DialogData {
   id: string;
@@ -20,10 +21,12 @@ export class ListComponent implements OnInit {
   theme: String;
   @Input() doctor = '';
   @Input() patients = [''];
+  Doctor = Doctor;
 
   constructor(
     private themes: Store<fromThemes.IState>,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private service: HomeService
   ) { }
 
   ngOnInit() {
@@ -31,7 +34,7 @@ export class ListComponent implements OnInit {
   }
 
   openDialog(id, name, surname): void {
-    const dialogRef = this.dialog.open(DiaglogComponent, {
+    const dialogRef = this.dialog.open(ListDiaglogComponent, {
       width: '500px',
       data: { id: id, name: `${name} ${surname}` }
     });
@@ -39,20 +42,24 @@ export class ListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
     });
   }
+
+  editList() {
+    this.service.redirectToList(this.doctor);
+  }
 }
 
 @Component({
   selector: 'app-dialog-overview',
   templateUrl: 'dialog-overview.html',
 })
-export class DiaglogComponent {
+export class ListDiaglogComponent {
 
   constructor(
-    public dialogRef: MatDialogRef<DiaglogComponent>,
+    public dialogRef: MatDialogRef<ListDiaglogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private service: HomeService,
     private snackbar: SnackbarService
-    ) { }
+  ) { }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -65,7 +72,7 @@ export class DiaglogComponent {
         this.dialogRef.close();
       },
       err => {
-        this.snackbar.showMessage(err.error.message);
+        this.snackbar.showMessage(err.error.message || 'Błąd serwera.');
         this.dialogRef.close();
       }
     );

@@ -11,7 +11,7 @@
             <app-list 
                 *ngFor="let item of doctors()" 
                 fxFlex="0 1 calc(33.3% - 32px)" 
-                [doctor]="Doctor[item]" [patients]="getList(item)">
+                [doctor]="item" [patients]="getList(item)">
             </app-list>
     </div>
 </div>
