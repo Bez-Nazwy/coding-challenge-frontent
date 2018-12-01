@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   email$: Observable<string>;
   theme: String;
-  list: any;
+  list: any = [null];
   Doctor = Doctor;
 
   constructor(
@@ -49,6 +49,6 @@ export class HomeComponent implements OnInit {
   }
 
   getList(doctor: Doctor) {
-    return(this.list[doctor]);
+    return (this.list[doctor]);
   }
 }

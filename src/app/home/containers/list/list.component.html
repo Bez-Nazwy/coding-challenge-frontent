@@ -4,7 +4,8 @@
   <div class="list" 
     [ngClass]="{'dark': theme == 'dark-theme'}">
     <div class="box" *ngFor="let patient of patients"
-    [ngClass]="{'dark': theme == 'dark-theme'}" (click)="openDialog(patient.id)">
+    [ngClass]="{'dark': theme == 'dark-theme'}" 
+    (click)="openDialog(patient.id, patient.name, patient.surname)">
       <p align="center">
         <b>
           {{ patient.name }} {{ patient.surname }}

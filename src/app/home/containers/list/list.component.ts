@@ -7,6 +7,7 @@ import { SnackbarService } from 'src/app/shared/services';
 
 export interface DialogData {
   id: string;
+  name: string;
 }
 
 @Component({
@@ -29,10 +30,10 @@ export class ListComponent implements OnInit {
     this.themes.pipe(select(fromThemes.getTheme)).subscribe(res => this.theme = res);
   }
 
-  openDialog(id): void {
+  openDialog(id, name, surname): void {
     const dialogRef = this.dialog.open(DiaglogComponent, {
       width: '500px',
-      data: { id: id }
+      data: { id: id, name: `${name} ${surname}` }
     });
 
     dialogRef.afterClosed().subscribe(result => {
