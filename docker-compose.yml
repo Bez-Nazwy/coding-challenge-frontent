@@ -1,4 +1,4 @@
-version: '3'
+version: '3.1'
 
 services:
   angular:
@@ -6,3 +6,27 @@ services:
       context: .
     ports:
       - "4200:80"
+  mongo-db:
+    container_name: mongo-db
+    image: mongo
+    ports:
+      - 27017:27017
+
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo-db
+      - ME_CONFIG_MONGODB_PORT=27017
+    depends_on:
+      - mongo-db
+
+  coding-challenge:
+    container_name: coding-challenge-rest
+    image: coding-challenge-rest:latest
+    ports:
+      - 80:8080
+    depends_on:
+      - mongo-db
