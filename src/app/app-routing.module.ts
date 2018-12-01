@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterPageComponent, LoginPageComponent } from './auth/containers';
 import { InfoComponent, BadRequestComponent, PasswordResetComponent } from './shared/containers';
 import { PatientDataComponent, PatientListComponent } from './add-patient/containers';
+import { PatientInfoComponent } from './add-patient/components';
 
 export const routes: Routes = [
   {
@@ -38,6 +39,11 @@ export const routes: Routes = [
   {
     path: 'add-patient-list',
     component: PatientListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'add-patient-info',
+    component: PatientInfoComponent,
     canActivate: [AuthGuard],
   },
   {

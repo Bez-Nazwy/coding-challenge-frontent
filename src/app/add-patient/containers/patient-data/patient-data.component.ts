@@ -36,6 +36,6 @@ export class PatientDataComponent implements OnInit {
 
   sendData() {
     this.service.patient = this.patient;
-    this.service.redirect();
+    this.service.redirectToList();
   }
 }

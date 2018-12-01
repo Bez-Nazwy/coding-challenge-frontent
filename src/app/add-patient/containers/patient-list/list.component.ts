@@ -34,11 +34,12 @@ export class PatientListComponent implements OnInit {
     this.myPatient.priority = position;
     this.service.postPatient(this.myPatient).subscribe(
       res => {
-        console.log(res);
+        this.service.credentials = res;
+        this.service.redirectToInfo();
       },
       err => {
         this.snackbar.showMessage(err.error.message);
       }
-    )
+    );
   }
 }
