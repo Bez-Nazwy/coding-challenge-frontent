@@ -79,10 +79,11 @@ export class HomeDiaglogComponent {
   onYesClick() {
     this.dialogRef.close();
     this.service.altDeletePatient(this.data.patient.patientNumber).subscribe(
-      res => { }, err => { this.snackbar.showMessage(err.error.message || 'Błąd serwera.'); });
-    this.service.altAddPatient(this.data.patient).subscribe(
-      res => { this.snackbar.showMessage('Operacja zmienienia kolejki wykonana.'); },
-      err => { this.snackbar.showMessage(err.error.message || 'Błąd serwera.'); });
+      res => {
+        this.service.altAddPatient(this.data.patient).subscribe(
+          _ => { this.snackbar.showMessage('Operacja zmienienia kolejki wykonana.'); },
+          err => { this.snackbar.showMessage(err.error.message || 'Błąd serwera.'); });
+      }, err => { this.snackbar.showMessage(err.error.message || 'Błąd serwera.'); });
     this.router.navigate(['home']);
   }
 }
