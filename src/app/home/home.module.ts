@@ -7,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HomeComponent, ListComponent } from './containers';
 import { ThemesModule } from '../themes';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DiaglogComponent } from './containers/list/list.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   declarations: [
     HomeComponent,
     ListComponent,
-  ]
+    DiaglogComponent
+  ],
+  entryComponents: [ DiaglogComponent ]
 })
 export class HomeModule { }

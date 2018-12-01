@@ -22,4 +22,11 @@ export class HomeService {
     const options = { headers: new HttpHeaders().set('Authorization', 'Bearer ' + token) };
     return this.http.get(url, options);
   }
+
+  deletePatient(id): Observable<any> {
+    const url = `${this.BASE_URL}/api/patients`;
+    const token = this.auth.getToken();
+    const options = { headers: new HttpHeaders().set('Authorization', 'Bearer ' + token) };
+    return this.http.delete(url, options);
+  }
 }

@@ -20,6 +20,7 @@ import {
   MatSelectModule,
 } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatTooltipModule,
     DragDropModule,
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   exports: [
     MatExpansionModule,
@@ -62,7 +64,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatTooltipModule,
     DragDropModule,
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
 })
 export class MaterialModule { }
