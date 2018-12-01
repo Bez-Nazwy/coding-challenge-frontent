@@ -38,4 +38,6 @@ export class PatientDataComponent implements OnInit {
     this.service.patient = this.patient;
     this.service.redirectToList();
   }
+
+  validate = () => (typeof(this.patient.serviceTime) === 'number')
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import * as fromThemes from '../../../state/themes/reducers';
 
 @Component({
   selector: 'app-list',
@@ -7,12 +9,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
+  theme: String;
   @Input() doctor = '';
   @Input() patients = [''];
 
-  constructor() { }
+  constructor(
+    private themes: Store<fromThemes.IState>,
+  ) { }
 
   ngOnInit() {
+    this.themes.pipe(select(fromThemes.getTheme)).subscribe(res => this.theme = res);
+
   }
 
 }

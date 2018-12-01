@@ -4,6 +4,8 @@ import { PatientService } from '../../services';
 import { IPatient } from '../../models/IPatient';
 import { Doctor } from '../../models/doctor.enum';
 import { SnackbarService } from 'src/app/shared/services';
+import { Store, select } from '@ngrx/store';
+import * as fromThemes from '../../../state/themes/reducers';
 
 @Component({
   selector: 'app-list',
@@ -16,13 +18,19 @@ export class PatientListComponent implements OnInit {
   doctor: string;
   myPatient: IPatient;
   Doctor = Doctor;
+  theme: String;
 
-  constructor(private service: PatientService, private snackbar: SnackbarService) { }
+  constructor(
+    private service: PatientService,
+    private snackbar: SnackbarService,
+    private themes: Store<fromThemes.IState>,
+  ) { }
 
   ngOnInit() {
     this.list = this.service.list;
     this.myPatient = this.service.patient;
     this.doctor = this.service.patient.doctor;
+    this.themes.pipe(select(fromThemes.getTheme)).subscribe(res => this.theme = res);
   }
 
   drop(event: CdkDragDrop<string[]>) {

@@ -1,8 +1,10 @@
 <div align="center">
   <h2>{{ doctor }}</h2>
   <br>
-  <div class="list">
-    <div class="box" *ngFor="let patient of patients">
+  <div class="list" 
+    [ngClass]="{'dark': theme == 'dark-theme'}">
+    <div class="box" *ngFor="let patient of patients"
+    [ngClass]="{'dark': theme == 'dark-theme'}">
       <p align="center">
         <b>
           {{ patient.name }} {{ patient.surname }}
@@ -10,7 +12,6 @@
         <br>
         {{ patient.diagnose }}
       </p>
-      <!-- <mat-icon>account_box</mat-icon> -->
     </div>
   </div>
 </div>

@@ -30,7 +30,7 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput required placeholder="Szacowany czas obsługi w minutach" [(ngModel)]="patient.serviceTime" name="serviceTime">
+        <input matInput type="number" required placeholder="Szacowany czas obsługi w minutach" [(ngModel)]="patient.serviceTime" name="serviceTime">
         <mat-icon matSuffix>access_time</mat-icon>
       </mat-form-field>
 
@@ -49,8 +49,10 @@
         <mat-icon matSuffix>accessible</mat-icon>
       </mat-form-field>
 
+      <div align="center" *ngIf="!validate()"> <small> Sprawdź ponownie dane.</small> <br><br> </div>
+
       <div align="center">
-        <button mat-raised-button color="primary" class="button" type="submit" [disabled]="disabled">
+        <button mat-raised-button color="primary" class="button" type="submit" [disabled]="!validate() || disabled">
           Dalej
         </button>
       </div>
